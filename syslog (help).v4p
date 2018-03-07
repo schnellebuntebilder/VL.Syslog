@@ -1,6 +1,6 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv50alpha35.18.dtd" >
-   <PATCH nodename="C:\VL\VL.Syslog\syslog (help).v4p" systemname="syslog (help)" filename="C:\VL\VL.Syslog\syslog (help).v4p" scrollx="15" scrolly="15">
-   <BOUNDS type="Window" left="0" top="10995" width="10665" height="4755">
+   <PATCH nodename="C:\VL\VL.Syslog\syslog (help).v4p" systemname="syslog (help)" filename="C:\VL\VL.Syslog\syslog (help).v4p" scrollx="15" scrolly="360">
+   <BOUNDS type="Window" left="4905" top="14205" width="10665" height="4620">
    </BOUNDS>
    <PACK Name="dx11" Version="1.2">
    </PACK>
@@ -129,7 +129,7 @@
    </PIN>
    <PIN pinname="Output String" visible="1">
    </PIN>
-   <PIN pinname="Input String" visible="1" slicecount="4" values="|message 0gh|,|message 1cghj|,|message 2|,|message 3e|">
+   <PIN pinname="Input String" visible="1" slicecount="4" values="|message 0gh|,|message 1j|,|message 2er|,|message 3e|">
    </PIN>
    </NODE>
    <NODE nodename="IOBox (String)" componentmode="InABox" id="22">
@@ -164,18 +164,12 @@
    </LINK>
    <LINK srcnodeid="22" srcpinname="Output String" dstnodeid="23" dstpinname="Message">
    </LINK>
-   <NODE systemname="Renderer (TTY)" nodename="Renderer (TTY)" componentmode="InAWindow" id="29">
-   <BOUNDS type="Node" left="4575" top="630" width="100" height="100">
-   </BOUNDS>
-   <BOUNDS type="Box" left="4575" top="630" width="2400" height="1800">
-   </BOUNDS>
-   <BOUNDS type="Window" left="5610" top="12660" width="6240" height="5085">
-   </BOUNDS>
-   </NODE>
    <NODE systemname="Syslog (Syslog Async Many)" filename="C:\VL\VL.Syslog\vl\Syslog.vl" nodename="Syslogger (VVVV async many)" componentmode="Hidden" id="32" debug="0">
    <BOUNDS type="Node" left="555" top="2580" width="8235" height="270">
    </BOUNDS>
    <PIN pinname="changed" visible="1">
+   </PIN>
+   <PIN pinname="Output" visible="1">
    </PIN>
    </NODE>
    <LINK srcnodeid="3" srcpinname="Y Output Value" dstnodeid="32" dstpinname="Send On Change">
