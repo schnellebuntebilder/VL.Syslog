@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Document xmlns:p="property" Id="GB2VxUl5VdhM5rsl5IbjQg" Authors="vvvv group" LicenseUrl="https://www.gnu.org/licenses/lgpl.html" ProjectUrl="http://vvvv.org/" Version="0.78">
+<Document xmlns:p="property" Id="GB2VxUl5VdhM5rsl5IbjQg" Authors="vvvv group" LicenseUrl="https://www.gnu.org/licenses/lgpl.html" ProjectUrl="http://vvvv.org/" Version="0.79">
   <NugetDependency Id="RKFCmk1Lg5EP3I4IQegLTw" Location="VL.CoreLib" Version="0.35.21" />
   <NugetDependency Id="U2JwHqMJLyGLDs97lM6eZ6" Location="VL.CoreLib.VVVV" Version="0.35.21" />
   <NugetDependency Id="Q18ZLENm9gzPhBnFnztPMP" Location="VL.Core" Version="0.35.21" />
@@ -434,8 +434,16 @@
               </p:NodeReference>
               <Pin Id="VOic5ykBU4tMXHVyJhawss" Name="Messages" Kind="InputPin" />
               <Pin Id="EuykfBtLQ5dP2xzeV8sIj9" Name="Severity" Kind="InputPin" />
-              <Pin Id="OANJ3PQAvp2PyOFtTT619P" Name="Tag" Kind="InputPin" />
-              <Pin Id="F0WmdU4LMA2L25qhrDa23c" Name="HostName" Kind="InputPin" />
+              <Pin Id="OANJ3PQAvp2PyOFtTT619P" Name="Tag" Kind="InputPin" DefaultValue="&quot;spreaded&quot;">
+                <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="VL.CoreLib.vl">
+                  <Choice Kind="TypeFlag" Name="String" />
+                </p:TypeAnnotation>
+              </Pin>
+              <Pin Id="F0WmdU4LMA2L25qhrDa23c" Name="HostName" Kind="InputPin" DefaultValue="&quot;myHost&quot;">
+                <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="VL.CoreLib.vl">
+                  <Choice Kind="TypeFlag" Name="String" />
+                </p:TypeAnnotation>
+              </Pin>
               <Pin Id="QBXicoBaGMGPHWEmn1d7US" Name="IP Adress" Kind="InputPin" />
               <Pin Id="Or5dCGqCmw7MiB4nbWDsPc" Name="Send" Kind="InputPin" />
               <Pin Id="Vpr0hYjuao2PT3KQ0fAi8h" Name="Send On Change" Kind="InputPin" />
@@ -453,7 +461,7 @@
               </p:NodeReference>
               <Pin Id="NhKT3nW0WDPO1euS8CJX27" Name="Message" Kind="InputPin" />
               <Pin Id="TJvsDfVXlFMONEG0v0WJMq" Name="Severity" Kind="InputPin" />
-              <Pin Id="Nz4Bcq9B0eoN4LslZGPeUm" Name="Tag" Kind="InputPin" DefaultValue="&quot;myTag&quot;">
+              <Pin Id="Nz4Bcq9B0eoN4LslZGPeUm" Name="Tag" Kind="InputPin" DefaultValue="&quot;manual&quot;">
                 <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="VL.CoreLib.vl">
                   <Choice Kind="TypeFlag" Name="String" />
                 </p:TypeAnnotation>
@@ -519,7 +527,7 @@
                     <Choice Kind="OperationCallFlag" Name="+" />
                     <CategoryReference Kind="Category" Name="Adaptive" NeedsToBeDirectParent="true" />
                   </p:NodeReference>
-                  <Pin Id="UILoonjad7NN9QhwV0N3wF" Name="Input" Kind="InputPin" DefaultValue="&quot;mintes passed: &quot;">
+                  <Pin Id="UILoonjad7NN9QhwV0N3wF" Name="Input" Kind="InputPin" DefaultValue="&quot;minutes passed: &quot;">
                     <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="VL.CoreLib.vl">
                       <Choice Kind="TypeFlag" Name="String" />
                     </p:TypeAnnotation>
@@ -552,7 +560,7 @@
                   <Choice Kind="TypeFlag" Name="SyslogSeverity" />
                 </p:TypeAnnotation>
               </Pin>
-              <Pin Id="Q1x8dXmTa0mQHZ6B9GortA" Name="Tag" Kind="InputPin" DefaultValue="&quot;myTag&quot;">
+              <Pin Id="Q1x8dXmTa0mQHZ6B9GortA" Name="Tag" Kind="InputPin" DefaultValue="&quot;best performance&quot;">
                 <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="VL.CoreLib.vl">
                   <Choice Kind="TypeFlag" Name="String" />
                 </p:TypeAnnotation>
@@ -588,12 +596,12 @@
               </p:NodeReference>
               <Pin Id="LTMyDW0KlwqNMX7r2ssrKS" Name="Message" Kind="InputPin" />
               <Pin Id="UFejzqLWecKPRCdNTShJIJ" Name="Severity" Kind="InputPin" />
-              <Pin Id="C1fZtBy0HMrQVv4vDb1YiN" Name="Tag" Kind="InputPin" DefaultValue="&quot;myTag&quot;">
+              <Pin Id="C1fZtBy0HMrQVv4vDb1YiN" Name="Tag" Kind="InputPin" DefaultValue="&quot;typical&quot;">
                 <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="VL.CoreLib.vl">
                   <Choice Kind="TypeFlag" Name="String" />
                 </p:TypeAnnotation>
               </Pin>
-              <Pin Id="V7vlsmspDY6MDZ2Tvrc4H1" Name="HostName" Kind="InputPin" DefaultValue="&quot;myHost&quot;">
+              <Pin Id="V7vlsmspDY6MDZ2Tvrc4H1" Name="HostName" Kind="InputPin">
                 <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="VL.CoreLib.vl">
                   <Choice Kind="TypeFlag" Name="String" />
                 </p:TypeAnnotation>
@@ -693,6 +701,24 @@
                 <Choice Kind="TypeFlag" Name="Boolean" />
               </p:TypeAnnotation>
             </Pad>
+            <Pad Id="UKIRPIizextNEC3BHxI5vR" Comment="Up Edge" Bounds="479,48,40,19" ShowValueBox="true" isIOBox="true" Value="false">
+              <p:ValueBoxSettings>
+                <p:buttonmode p:Assembly="VL.Forms" p:Type="VL.HDE.PatchEditor.Editors.ButtonModeEnum">Bang</p:buttonmode>
+              </p:ValueBoxSettings>
+              <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="VL.CoreLib.vl">
+                <Choice Kind="TypeFlag" Name="Boolean" />
+              </p:TypeAnnotation>
+            </Pad>
+            <Pad Id="PzeIYpX3mpkLJV2WG2Txzr" Comment="Pause" Bounds="617,-158,40,19" ShowValueBox="true" isIOBox="true" Value="true">
+              <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="VL.CoreLib.vl">
+                <Choice Kind="TypeFlag" Name="Boolean" />
+              </p:TypeAnnotation>
+            </Pad>
+            <Pad Id="RWALVaFowlHMxBpdA2uIT2" Comment="HostName" Bounds="-148,-64,46,19" ShowValueBox="true" isIOBox="true" Value="&quot;myHost&quot;">
+              <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="VL.CoreLib.vl">
+                <Choice Kind="TypeFlag" Name="String" />
+              </p:TypeAnnotation>
+            </Pad>
           </Canvas>
           <Patch Id="HjDaq3T6xSrNwnFh6jkoOd" Name="Create" />
           <Patch Id="KXCLNaFZp8bMQbsvpeG3LX" Name="Update" />
@@ -712,19 +738,25 @@
           <Link Id="IKsIbY0ciGqPEfMxjeg8h4" Ids="USXFW57mfnBLcJm3EMtd11,UfmF0pcvDXGLbzX2J9opV7" />
           <Link Id="GWh1ayJAf3rOdAHkcHD9Es" Ids="NubOXXjSfukPHNBfhG00Vu,U6YulFEw8tNLhgZfyCzEd5" />
           <Link Id="NofkBqyeQHpOuIa0E3qdyR" Ids="Nng2lOUMkaOO6xOj52QZ79,EuykfBtLQ5dP2xzeV8sIj9" />
-          <Link Id="QlhVtxUKi2cPFM48LyZWhc" Ids="DjQnNQ1tf6bPR6MDQzMk6I,Or5dCGqCmw7MiB4nbWDsPc" />
           <Link Id="KpTQaaOBm4DLlnjkFIeIaq" Ids="U6YulFEw8tNLhgZfyCzEd5,TjY20fn2JeFMlwRAP51I9a" />
           <Link Id="IWlIUIePtZhQRISBT6WUjv" Ids="TjY20fn2JeFMlwRAP51I9a,VOic5ykBU4tMXHVyJhawss" />
-          <Link Id="Kw7TI36Wn6VM7cLw8ECTE0" Ids="DjQnNQ1tf6bPR6MDQzMk6I,DATXDLJo3VoPhn1JkALR9t" />
           <Link Id="S1Ko75Cot17NP1gm6womqn" Ids="JGZzlmDb16RQMqMSs7r3hU,UFejzqLWecKPRCdNTShJIJ" />
           <Link Id="KQB7hlVuQ5zP8SDDUrbtdH" Ids="CrPPI0jpXY4PHcS6VJDxLr,LTMyDW0KlwqNMX7r2ssrKS" />
           <Link Id="VAWMUXrmQm6QNeXGVpPCMu" Ids="IBeoWgbgBMyP6IbHRetl5v,NVmDACNrFSlPYLGpvF3jLS" />
-          <Link Id="DHuOez6SUHXPM7omI5TVWC" Ids="DjQnNQ1tf6bPR6MDQzMk6I,IKTibq5zNCjMAVeVE4LpgE" />
           <Link Id="ODIQBXcPEbHQb70oEWbNi5" Ids="RBwbOMiQ9qBLq9gvzwHWn1,UIT4JrxQoVmP8HarJJyBH3" />
           <Link Id="N2AIiw1HC8nOVREaosgqwy" Ids="JwNRdoO558JOFPDSXWedlf,JODNctkw2LtLCBOxmzouum" />
           <Link Id="RR5wTLRV5bXLd6qXlddupC" Ids="AwoSakdZhsaP8LVo0FBhPN,CrPPI0jpXY4PHcS6VJDxLr" />
           <Link Id="L18Mo0FQNcBPtxzjOJz8tY" Ids="H2XLoXnIj1UPSFUxDHH0gU,Vpr0hYjuao2PT3KQ0fAi8h" />
-          <Link Id="Oy9VrpRVLv2NJ76TnhZStq" Ids="DjQnNQ1tf6bPR6MDQzMk6I,TfoBWTRIfq0MD42FpDUhnv" />
+          <Link Id="JeNENyHqprVNQp7Xic5jsx" Ids="DjQnNQ1tf6bPR6MDQzMk6I,UKIRPIizextNEC3BHxI5vR" />
+          <Link Id="Gthh8WQqql8NNZHGfH6CJU" Ids="UKIRPIizextNEC3BHxI5vR,IKTibq5zNCjMAVeVE4LpgE" />
+          <Link Id="RpsFR8hwqwpM5W9iQceZK1" Ids="UKIRPIizextNEC3BHxI5vR,Or5dCGqCmw7MiB4nbWDsPc" />
+          <Link Id="Fe0L6tVCl6BLlDTYLiDHe1" Ids="UKIRPIizextNEC3BHxI5vR,TfoBWTRIfq0MD42FpDUhnv" />
+          <Link Id="KVraXiPD3IpMbBMgxGNUch" Ids="UKIRPIizextNEC3BHxI5vR,DATXDLJo3VoPhn1JkALR9t" />
+          <Link Id="EsFDVRaPHWIN8S285VJWs3" Ids="PzeIYpX3mpkLJV2WG2Txzr,Mw7BnON6RveNiSJ0Tc65Jd" />
+          <Link Id="L7sCmY7zn17OSoV6ltohs2" Ids="RWALVaFowlHMxBpdA2uIT2,F0WmdU4LMA2L25qhrDa23c" />
+          <Link Id="Ug9SRhxnDVsOrE488J3sOV" Ids="RWALVaFowlHMxBpdA2uIT2,V7vlsmspDY6MDZ2Tvrc4H1" />
+          <Link Id="Vw3cQyU8jjhO7wuJO9ddEF" Ids="RWALVaFowlHMxBpdA2uIT2,EUOXTaOVcKzOEfsAO2DRPj" />
+          <Link Id="UYJsRbMJ0ZZLL9kosEc0FA" Ids="RWALVaFowlHMxBpdA2uIT2,UEqnk7HvRDzQOtjknoIcce" />
         </Patch>
       </Node>
       <!--
