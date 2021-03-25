@@ -24,11 +24,18 @@ jobs:
 
     - name: Setup Nuget.exe
       uses: nuget/setup-nuget@v1
+
+    - name: Offset run_number
+      env:
+        NUM: ${{ github.run_number }}
+      run: 
+        echo ::set-env name=GITHUB_RUN_NUMBER_WITH_OFFSET::$(($NUM-12))
+    - run: echo $GITHUB_RUN_NUMBER_WITH_OFFSET
       
     - name: Nuget Pack
       run: nuget pack ./deployment/VL.Syslog.nuspec -Version ${{env.VERSION}}
       env:
-        VERSION: 0.2.${{github.run_number}}
+        VERSION: 0.3.${{GITHUB_RUN_NUMBER_WITH_OFFSET}}
       
     - name: Nuget Push
       run: nuget push *.nupkg ${{secrets.NUGET_KEY}} -src https://api.nuget.org/v3/index.json -NoSymbols

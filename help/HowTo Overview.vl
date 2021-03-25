@@ -117,28 +117,17 @@
             </Pin>
             <Pin Id="V3h5sYX5tafOKkE1qyz3bn" Name="Output" Kind="OutputPin" />
           </Node>
-          <Node Bounds="789,358,-8,19" Id="UpjKAVqKFjINN3UynO07LB">
-            <p:NodeReference LastCategoryFullName="Syslog.Udp" LastSymbolSource="VL.Syslog.vl">
-              <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
-              <Choice Kind="ProcessAppFlag" Name="UdpProvider" />
-            </p:NodeReference>
-            <Pin Id="Cau2kvuyDcBMiiGmdJ6uGy" Name="Set New Endpoint" Kind="InputPin" />
-            <Pin Id="KHQ3aOKSNX0QPvcYEoeyij" Name="Remote Address" Kind="InputPin" />
-            <Pin Id="AO2K9hBEekDN5eMLBjT7HF" Name="Remote Port" Kind="InputPin" />
-            <Pin Id="GPdB1JMJNEBLCU5T7nxi6X" Name="LogMessage" Kind="InputPin" />
-            <Pin Id="QVfdP4SsKIoPUVtwwhpkiU" Name="Output" Kind="OutputPin" />
-          </Node>
-          <Pad Id="QBX69kXErW4O75ipIkAV97" Comment="Remote Address" Bounds="814,301,82,15" ShowValueBox="true" isIOBox="true" Value="192.168.10.123">
+          <Pad Id="QBX69kXErW4O75ipIkAV97" Comment="Server Address" Bounds="825,297,82,15" ShowValueBox="true" isIOBox="true" Value="127.0.0.1">
             <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
               <Choice Kind="TypeFlag" Name="String" />
             </p:TypeAnnotation>
           </Pad>
-          <Pad Id="RRuxNN7B8KeNlXie3PRohs" Comment="Remote Port" Bounds="836,328,35,15" ShowValueBox="true" isIOBox="true" Value="514">
+          <Pad Id="RRuxNN7B8KeNlXie3PRohs" Comment="Server Port" Bounds="858,324,35,15" ShowValueBox="true" isIOBox="true" Value="514">
             <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
               <Choice Kind="TypeFlag" Name="Integer32" />
             </p:TypeAnnotation>
           </Pad>
-          <Pad Id="B3ic1xZT324PRWLxc4eGua" Comment="Set New Endpoint" Bounds="794,196,35,35" ShowValueBox="true" isIOBox="true" Value="False">
+          <Pad Id="B3ic1xZT324PRWLxc4eGua" Comment="Set New Server" Bounds="791,244,35,35" ShowValueBox="true" isIOBox="true" Value="False">
             <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
               <Choice Kind="TypeFlag" Name="Boolean" />
             </p:TypeAnnotation>
@@ -278,9 +267,18 @@
               <Choice Kind="TypeFlag" Name="SyslogSeverity" />
             </p:TypeAnnotation>
           </Pad>
+          <Node Bounds="789,363,72,19" Id="Gm7RRJX6LklLcRx1Rszv2G">
+            <p:NodeReference LastCategoryFullName="Syslog.Udp" LastSymbolSource="VL.Syslog.vl">
+              <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+              <Choice Kind="ProcessAppFlag" Name="UdpProvider" />
+            </p:NodeReference>
+            <Pin Id="DeK5ts0a8n6O9FndC5Vzja" Name="Set New Server" Kind="InputPin" />
+            <Pin Id="H5AalrVhBlgOz04G1eyAW3" Name="Server Address" Kind="InputPin" />
+            <Pin Id="CbhvK1YafXvNbx1PjYAPIt" Name="Server Port" Kind="InputPin" />
+          </Node>
         </Canvas>
         <Patch Id="VQqgQAKmiBKPqxbbV1RYzG" Name="Create" />
-        <Patch Id="OZrEalo3cmAMG4QW2JKadv" Name="Update" ParticipatingElements="QBB88yB6yrOLD2UVdLZDHi,PcgSOIG6GljN7cCW4NDbmi,ItDP9SnzbvnMWNTiPkNCfS" />
+        <Patch Id="OZrEalo3cmAMG4QW2JKadv" Name="Update" />
         <ProcessDefinition Id="AS8cX3JW5bYMTMaG1b2rhn">
           <Fragment Id="VQWb7OP4HrWPFbstXAiM9J" Patch="VQqgQAKmiBKPqxbbV1RYzG" Enabled="true" />
           <Fragment Id="KfZ4BEeJDtCLDMcIhXF7Rz" Patch="OZrEalo3cmAMG4QW2JKadv" Enabled="true" />
@@ -293,9 +291,6 @@
         <Link Id="DOhRwsQLoxhOOYxAInvWmM" Ids="QmjjcZOEcoGQQw3bxvVC2r,MsEZCdK97eENu3Ohaypitx" />
         <Link Id="JSYUyAVtgJsMP1QSrBANLJ" Ids="CguE8qjhR6WLkkTvsWdW1p,EJUXA1rFpqVLikFSsChFMl" />
         <Link Id="OXChqmR1jpkPtLdfCHFXxH" Ids="V3h5sYX5tafOKkE1qyz3bn,L3AyHTAXlY0MVkbVurPNt0" />
-        <Link Id="QBB88yB6yrOLD2UVdLZDHi" Ids="QBX69kXErW4O75ipIkAV97,KHQ3aOKSNX0QPvcYEoeyij" />
-        <Link Id="PcgSOIG6GljN7cCW4NDbmi" Ids="RRuxNN7B8KeNlXie3PRohs,AO2K9hBEekDN5eMLBjT7HF" />
-        <Link Id="ItDP9SnzbvnMWNTiPkNCfS" Ids="B3ic1xZT324PRWLxc4eGua,Cau2kvuyDcBMiiGmdJ6uGy" />
         <Link Id="VF0I7ufxNLFLmTOGTjiDq2" Ids="KZIJH89ZcpjNgbBsCuPyUd,LaE6Ss7GUarMtqGDo3PkhP" IsHidden="true" />
         <Link Id="VffHaPzskgIQYmk0KE66tC" Ids="LaE6Ss7GUarMtqGDo3PkhP,J21Jkv2u1ccQMSeXzUYzID" />
         <Link Id="ELlV8SXxmzxMWly04fjJcy" Ids="NwNz3TTPbd3OBLjyC9oPnX,HdKxdYm4CQCOHIlUKvgxsi" />
@@ -311,6 +306,9 @@
         <Link Id="ELhcIL2lLyqOFRPla27GKt" Ids="DzE6VUMGhrLOOtAwmRXr8B,CrlKKBLc6uSPLFXm7IiusV" />
         <Link Id="Mmv9XI53VQBO7R9TfcPy2T" Ids="IvUOeO5JGhjMMuL7h1SBmn,U7jn0XnYLcGMHziN48nRX3" />
         <Link Id="Kcp5BOj55QcQOYecUw2Ejy" Ids="DzE6VUMGhrLOOtAwmRXr8B,S2j0lKIZp5bNN9cCPgzvcj" />
+        <Link Id="MiIcY1qgmG0LoYtS60YsGW" Ids="B3ic1xZT324PRWLxc4eGua,DeK5ts0a8n6O9FndC5Vzja" />
+        <Link Id="KZPbmQmDevqPZyPeMV2hkn" Ids="QBX69kXErW4O75ipIkAV97,H5AalrVhBlgOz04G1eyAW3" />
+        <Link Id="PuGazo9T67aNJeXGi8RnTp" Ids="RRuxNN7B8KeNlXie3PRohs,CbhvK1YafXvNbx1PjYAPIt" />
       </Patch>
     </Node>
   </Patch>
