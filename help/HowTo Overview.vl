@@ -205,7 +205,7 @@
               <Patch Id="UFYoi8pgpQtL1HME30HQtI" Name="Create" ManuallySortedPins="true" />
               <Patch Id="TQJ9PWOD3VTMeKPkrJPN1C" Name="Then" ManuallySortedPins="true" />
               <Node Bounds="796,322,110,19" Id="UpjKAVqKFjINN3UynO07LB">
-                <p:NodeReference LastCategoryFullName="Syslog.Udp" LastSymbolSource="Syslog.vl">
+                <p:NodeReference LastCategoryFullName="Syslog.Udp" LastSymbolSource="VL.Syslog.vl">
                   <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                   <Choice Kind="ProcessAppFlag" Name="UdpProvider" />
                 </p:NodeReference>
@@ -346,5 +346,5 @@
     </Node>
   </Patch>
   <NugetDependency Id="NY5FZNatfWiPD70FNGAWXG" Location="VL.CoreLib" Version="2021.3.1" />
-  <DocumentDependency Id="M4LEA9234WKNO3la9UIJTU" Location="../Syslog.vl" />
+  <DocumentDependency Id="COmJlNExyTNNlaeFy8Udpu" Location="../VL.Syslog.vl" />
 </Document>
