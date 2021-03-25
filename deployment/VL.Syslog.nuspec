@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/10/nuspec.xsd">
+  <metadata>
+    <id>VL.Syslog</id>
+    <version>0.2.0</version>
+    <title>VL.Syslog</title>
+    <authors>sebl</authors>
+    <owners>sebl</owners>
+    <projectUrl>https://github.com/sebllll/VL.FileTypeAssociation</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <summary>Set of nodes to Send SyslogMessages to a Syslog Server</summary>
+    <description>Plugin for VL</description>
+    <copyright>Copyright © 2021. All rights reserved.</copyright>
+    <tags>VVVV, VL, Syslog</tags>
+    <dependencies>
+      <group targetFramework="netstandard2.0">
+        <dependency id="Microsoft.Win32.Registry" version="4.7.0" />
+      </group>
+    </dependencies>
+	<license type="expression">LGPL-3.0-only</license>
+    <icon>icon\nugeticon.png</icon>
+  </metadata>
+  <files>
+    <file src="Syslog.vl" target="" exclude="" />
+    <file src="..\help\**" target="help\" exclude="" />
+	<file src="nugeticon.png" target="icon\" />
+  </files>
+</package>
