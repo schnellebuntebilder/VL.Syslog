@@ -25,13 +25,25 @@ jobs:
     - name: Setup Nuget.exe
       uses: nuget/setup-nuget@v1
 
+
+
     - name: Offset run_number
       env:
         NUM: ${{ github.run_number }}
-      run: 
-        echo ::set-env name=GITHUB_RUN_NUMBER_WITH_OFFSET::$(($NUM-12))
+      run: |
+        echo ::set-env name=GITHUB_RUN_NUMBER_WITH_OFFSET::$(($NUM - 12))
     - run: echo $GITHUB_RUN_NUMBER_WITH_OFFSET
       
+    # - name: Set the value
+    #   id: step_one
+    #   run: |
+    #       echo "action_state=yellow" >> $GITHUB_ENV
+    # - name: Use the value
+    #   id: step_two
+    #   run: |
+    #       echo "${{ env.action_state }}" # This will output 'yellow'
+
+
     - name: Nuget Pack
       run: nuget pack ./deployment/VL.Syslog.nuspec -Version ${{env.VERSION}}
       env:
