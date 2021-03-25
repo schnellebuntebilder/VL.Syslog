@@ -6,7 +6,7 @@
     <title>VL.Syslog</title>
     <authors>sebl</authors>
     <owners>sebl</owners>
-    <projectUrl>https://github.com/sebllll/VL.FileTypeAssociation</projectUrl>
+    <projectUrl>https://github.com/schnellebuntebilder/VL.Syslog</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <summary>Set of nodes to Send SyslogMessages to a Syslog Server</summary>
     <description>Plugin for VL</description>
