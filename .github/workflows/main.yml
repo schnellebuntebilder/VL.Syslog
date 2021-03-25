@@ -2,11 +2,12 @@ name: push_nuget
 
 # on push on master
 on:
-  push:
-    branches:
-      - master
-    paths-ignore:
-      - README.md
+  workflow_dispatch:
+    inputs:
+      buildnumber:
+        description: 'Build Number'     
+        required: true
+        default: '1'
 
 jobs:
   deploy:
@@ -28,7 +29,7 @@ jobs:
     - name: Nuget Pack
       run: nuget pack ./deployment/VL.Syslog.nuspec -Version ${{env.VERSION}}
       env:
-        VERSION: 0.3.0
+        VERSION: 0.3.${{ github.event.inputs.buildnumber }}
         # VERSION: 0.3.${{github.run_number}}
       
     - name: Nuget Push
