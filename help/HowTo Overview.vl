@@ -169,45 +169,6 @@
             <Pin Id="KyqiCMk1e6mQdZ49plnOe3" Name="Input" Kind="InputPin" />
             <Pin Id="DzE6VUMGhrLOOtAwmRXr8B" Name="Result" Kind="OutputPin" />
           </Node>
-          <Node Bounds="782,267,206,112" Id="PrJrXBsDdEMQBIXXyOyb9O">
-            <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="VL.CoreLib.dll">
-              <Choice Kind="StatefulRegion" Name="Region (Stateful)" Fixed="true" />
-              <Choice Kind="ApplicationStatefulRegion" Name="If" />
-              <FullNameCategoryReference ID="Primitive" />
-            </p:NodeReference>
-            <Pin Id="SuDk96BGl01MHMca9k1m2t" Name="Condition" Kind="InputPin" />
-            <Patch Id="OslDCx2ph06NkZX91J9CIv" ManuallySortedPins="true">
-              <Patch Id="UFYoi8pgpQtL1HME30HQtI" Name="Create" ManuallySortedPins="true" />
-              <Patch Id="TQJ9PWOD3VTMeKPkrJPN1C" Name="Then" ManuallySortedPins="true" />
-              <Node Bounds="796,340,110,19" Id="UpjKAVqKFjINN3UynO07LB">
-                <p:NodeReference LastCategoryFullName="Syslog.Udp" LastSymbolSource="VL.Syslog.vl">
-                  <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
-                  <Choice Kind="ProcessAppFlag" Name="UdpProvider" />
-                </p:NodeReference>
-                <Pin Id="KHQ3aOKSNX0QPvcYEoeyij" Name="Remote Address" Kind="InputPin" />
-                <Pin Id="AO2K9hBEekDN5eMLBjT7HF" Name="Remote Port" Kind="InputPin" />
-                <Pin Id="StbuCD9NYaSLILO7CZShuU" Name="LogMessage" Kind="InputPin" />
-              </Node>
-              <Pad Id="QBX69kXErW4O75ipIkAV97" Comment="Remote Address" Bounds="798,295,119,15" ShowValueBox="true" isIOBox="true" Value="192.168.10.123">
-                <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
-                  <Choice Kind="TypeFlag" Name="String" />
-                </p:TypeAnnotation>
-              </Pad>
-              <Pad Id="RRuxNN7B8KeNlXie3PRohs" Comment="Remote Port" Bounds="851,320,35,15" ShowValueBox="true" isIOBox="true" Value="5678">
-                <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
-                  <Choice Kind="TypeFlag" Name="Integer32" />
-                </p:TypeAnnotation>
-              </Pad>
-            </Patch>
-          </Node>
-          <Pad Id="BXxUsW0J7t7NxwotaaM3C7" Comment="this is only needed if your setup isn't a local server listening on port 514" Bounds="784,240,35,15" ShowValueBox="true" isIOBox="true" Value="True">
-            <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
-              <Choice Kind="TypeFlag" Name="Boolean" />
-            </p:TypeAnnotation>
-            <p:ValueBoxSettings>
-              <p:buttonmode p:Assembly="VL.UI.Forms" p:Type="VL.HDE.PatchEditor.Editors.ButtonModeEnum">Toggle</p:buttonmode>
-            </p:ValueBoxSettings>
-          </Pad>
           <Pad Id="CrlKKBLc6uSPLFXm7IiusV" Comment="Tag" Bounds="958,671,35,15" ShowValueBox="true" isIOBox="true" Value="0">
             <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
               <Choice Kind="TypeFlag" Name="String" />
@@ -288,6 +249,47 @@
             </Pin>
             <Pin Id="V3h5sYX5tafOKkE1qyz3bn" Name="Output" Kind="OutputPin" />
           </Node>
+          <Node Bounds="789,358,-8,19" Id="UpjKAVqKFjINN3UynO07LB">
+            <p:NodeReference LastCategoryFullName="Syslog.Udp" LastSymbolSource="VL.Syslog.vl">
+              <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+              <Choice Kind="ProcessAppFlag" Name="UdpProvider" />
+            </p:NodeReference>
+            <Pin Id="Cau2kvuyDcBMiiGmdJ6uGy" Name="Set New Endpoint" Kind="InputPin" />
+            <Pin Id="KHQ3aOKSNX0QPvcYEoeyij" Name="Remote Address" Kind="InputPin" />
+            <Pin Id="AO2K9hBEekDN5eMLBjT7HF" Name="Remote Port" Kind="InputPin" />
+            <Pin Id="StbuCD9NYaSLILO7CZShuU" Name="LogMessage" Kind="InputPin" />
+          </Node>
+          <Pad Id="QBX69kXErW4O75ipIkAV97" Comment="Remote Address" Bounds="814,301,82,15" ShowValueBox="true" isIOBox="true" Value="192.168.10.123">
+            <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
+              <Choice Kind="TypeFlag" Name="String" />
+            </p:TypeAnnotation>
+          </Pad>
+          <Pad Id="RRuxNN7B8KeNlXie3PRohs" Comment="Remote Port" Bounds="836,328,35,15" ShowValueBox="true" isIOBox="true" Value="514">
+            <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
+              <Choice Kind="TypeFlag" Name="Integer32" />
+            </p:TypeAnnotation>
+          </Pad>
+          <Node Bounds="615,589" Id="Ai22QdfBqmnQbh1JZPj2Q4">
+            <p:NodeReference LastCategoryFullName="Animation" LastSymbolSource="CoreLibBasics.vl">
+              <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+              <Choice Kind="ProcessAppFlag" Name="LFO" />
+            </p:NodeReference>
+            <Pin Id="NiSbiLiDjAbP1JDX74W2jW" Name="Period" Kind="InputPin" />
+            <Pin Id="BH6IUOH5o4tPh6E2A8upUZ" Name="Pause" Kind="InputPin" />
+            <Pin Id="NBWZlKkqKj3P4qYSVk5UyK" Name="Reset" Kind="ApplyPin" />
+            <Pin Id="JbWc7CeWCzzPmA3JkN2Y7d" Name="Phase" Kind="OutputPin" />
+            <Pin Id="HcjA7Dc8lOLMd1XTKnfJLX" Name="On New Cycle" Kind="OutputPin" />
+            <Pin Id="GCXPRXNg2wZPqw0hlDTu66" Name="Cycles" Kind="OutputPin" />
+          </Node>
+          <Pad Id="NPSSnEnmdiRLv5RfvQM0ZP" Comment="Set New Endpoint" Bounds="791,256,35,35" ShowValueBox="true" isIOBox="true" Value="False">
+            <p:TypeAnnotation>
+              <Choice Kind="TypeFlag" Name="Boolean" />
+              <FullNameCategoryReference ID="Primitive" />
+            </p:TypeAnnotation>
+            <p:ValueBoxSettings>
+              <p:buttonmode p:Assembly="VL.UI.Forms" p:Type="VL.HDE.PatchEditor.Editors.ButtonModeEnum">Bang</p:buttonmode>
+            </p:ValueBoxSettings>
+          </Pad>
         </Canvas>
         <Patch Id="VQqgQAKmiBKPqxbbV1RYzG" Name="Create" />
         <Patch Id="OZrEalo3cmAMG4QW2JKadv" Name="Update" />
@@ -303,7 +305,6 @@
         <Link Id="ELlV8SXxmzxMWly04fjJcy" Ids="NwNz3TTPbd3OBLjyC9oPnX,HdKxdYm4CQCOHIlUKvgxsi" />
         <Link Id="Trus4zSynKNM10yhEukchq" Ids="Ed4uOvbRJu4NfCudjf2o1k,BGcxHVVVmq2PT3XQptu4sD" />
         <Link Id="KESc4rxZtGzNOcxVbrCguu" Ids="Ed4uOvbRJu4NfCudjf2o1k,DOPd4hibWNlL8NxaJWERAf" />
-        <Link Id="BtIzkvIt4XlLAdNp7c7w6E" Ids="BXxUsW0J7t7NxwotaaM3C7,SuDk96BGl01MHMca9k1m2t" />
         <Link Id="AxbCP5AN4l7QTHNFS5MJxZ" Ids="CrlKKBLc6uSPLFXm7IiusV,GRKpbURqrx2NaoHxBd452a" />
         <Link Id="CbggjhAPnjHLRznzRKRkFm" Ids="PohNCx3LNpyLDVlZXzX4cz,JmmU1DTBU1fMo37642tRkA" />
         <Link Id="LNmy6zOqGrUQJhcDYGJvz4" Ids="RKMRgj5Bjx4Ou7JmzsnJpI,Sn3JjXMovCtMoJI0BjtFuE" />
@@ -321,6 +322,7 @@
         <Link Id="OXChqmR1jpkPtLdfCHFXxH" Ids="V3h5sYX5tafOKkE1qyz3bn,L3AyHTAXlY0MVkbVurPNt0" />
         <Link Id="QBB88yB6yrOLD2UVdLZDHi" Ids="QBX69kXErW4O75ipIkAV97,KHQ3aOKSNX0QPvcYEoeyij" />
         <Link Id="PcgSOIG6GljN7cCW4NDbmi" Ids="RRuxNN7B8KeNlXie3PRohs,AO2K9hBEekDN5eMLBjT7HF" />
+        <Link Id="G2ezgJlvgneQPF5Njzzm9y" Ids="NPSSnEnmdiRLv5RfvQM0ZP,Cau2kvuyDcBMiiGmdJ6uGy" />
       </Patch>
     </Node>
   </Patch>
