@@ -682,7 +682,7 @@
     ************************ Log ************************
 
 -->
-        <Node Name="Log" Bounds="522,530" Id="PjL5aQvlmkpNWNxQme9DnS" Summary="Basic stateful template with one in/out" Tags="vl">
+        <Node Name="Log" Bounds="522,530" Id="PjL5aQvlmkpNWNxQme9DnS" Summary="Send one logmessage to a syslog server" Remarks="by default sends to 127.0.0.1:514. If you want to have a different receiving server, place a UdpProvider Node in the patch as described in the helppatch" Tags="log,syslog,debug">
           <p:NodeReference>
             <Choice Kind="ClassDefinition" Name="Class" />
             <FullNameCategoryReference ID="Primitive" />
@@ -761,26 +761,26 @@
                 </p:ValueBoxSettings>
               </Pad>
             </Canvas>
-            <Patch Id="In72ZJIvRLxPj6qplU9wfW" Name="Create" />
-            <Patch Id="B67PYOSH40sM0tl209DZ8S" Name="SendMessage" ParticipatingElements="PgyzAC0iSKoNRHqTU0bkVE" ManuallySortedPins="true">
+            <Patch Id="In72ZJIvRLxPj6qplU9wfW" Name="Create (Internal)" />
+            <Patch Id="B67PYOSH40sM0tl209DZ8S" Name="SendMessage (Internal)" ParticipatingElements="PgyzAC0iSKoNRHqTU0bkVE" ManuallySortedPins="true">
               <Pin Id="KksvC9L8lnTLIQpyvrR5Fe" Name="LogMessage" Kind="InputPin" />
             </Patch>
             <Link Id="VgOHku3DDM2NJ6SMGpKARt" Ids="M2hmEU1eOdxMw94nVaWoNX,GBn0z30lGh2P8NO2ANtFem" />
             <Link Id="GNqmYrFt7P4Pvu77dlCMv9" Ids="A3Busa2XYCGNdSufPr0EEi,Uix2ZlPQrnUOmaCWLHpxvX" IsHidden="true" />
-            <Patch Id="MlrVemAI97HNKsrBHicr1x" Name="Update">
-              <Pin Id="A3Busa2XYCGNdSufPr0EEi" Name="Host" Kind="InputPin" />
-              <Pin Id="VECv40tWzFhL6UcrImdYUt" Name="Facility" Kind="InputPin" Bounds="1109,532" DefaultValue="User" Visibility="Optional">
+            <Patch Id="MlrVemAI97HNKsrBHicr1x" Name="Update (Internal)">
+              <Pin Id="A3Busa2XYCGNdSufPr0EEi" Name="Host" Kind="InputPin" Summary="host field in the logmessage" />
+              <Pin Id="VECv40tWzFhL6UcrImdYUt" Name="Facility" Kind="InputPin" Bounds="1109,532" DefaultValue="User" Visibility="Optional" Summary="facility field in the logmessage">
                 <p:TypeAnnotation LastCategoryFullName="VVVV.Nodes.Syslog" LastSymbolSource="VVVV.Nodes.Syslog.dll">
                   <Choice Kind="TypeFlag" Name="SyslogFacility" />
                 </p:TypeAnnotation>
               </Pin>
-              <Pin Id="LaBNBq1tGTsOUAFotsptcx" Name="Severity" Kind="InputPin" Bounds="1151,556" DefaultValue="Unknown">
+              <Pin Id="LaBNBq1tGTsOUAFotsptcx" Name="Severity" Kind="InputPin" Bounds="1151,556" DefaultValue="Unknown" Summary="severity field in the logmessage">
                 <p:TypeAnnotation LastCategoryFullName="VVVV.Nodes.Syslog" LastSymbolSource="VVVV.Nodes.Syslog.dll">
                   <Choice Kind="TypeFlag" Name="SyslogSeverity" />
                 </p:TypeAnnotation>
               </Pin>
-              <Pin Id="KnxNR99H9nqL9La3t0TrZe" Name="Tag" Kind="InputPin" Bounds="1190,573" />
-              <Pin Id="EtTjYN0Z5EQPKoQhIgvaxd" Name="Message" Kind="InputPin" Bounds="1233,570" />
+              <Pin Id="KnxNR99H9nqL9La3t0TrZe" Name="Tag" Kind="InputPin" Bounds="1190,573" Summary="tag field in the logmessage" />
+              <Pin Id="EtTjYN0Z5EQPKoQhIgvaxd" Name="Message" Kind="InputPin" Bounds="1233,570" Summary="the logmessage" />
               <Pin Id="ELp9F4aa5orLCdfUQO4kJ5" Name="Send" Kind="InputPin" Bounds="1339,548" />
             </Patch>
             <Link Id="AqhpZ5CKavPOWTh6HES6gw" Ids="VECv40tWzFhL6UcrImdYUt,PbMN2B8UMpwLPtHPfOZ4HM" IsHidden="true" />
@@ -810,7 +810,7 @@
     ************************ UdpSender ************************
 
 -->
-        <Node Name="UdpSender" Bounds="471,466" Id="PrBX6qafOPCQLdPpmHXYnD">
+        <Node Name="UdpSender" Aspects="Internal" Bounds="471,466" Id="PrBX6qafOPCQLdPpmHXYnD">
           <p:NodeReference>
             <Choice Kind="ClassDefinition" Name="Class" />
             <FullNameCategoryReference ID="Primitive" />
@@ -884,18 +884,6 @@
                       <p:buttonmode p:Assembly="VL.UI.Forms" p:Type="VL.HDE.PatchEditor.Editors.ButtonModeEnum">Toggle</p:buttonmode>
                     </p:ValueBoxSettings>
                   </Pad>
-                  <Node Bounds="366,456" Id="GkQrRVBf4JDOobKMXqim5T">
-                    <p:NodeReference LastCategoryFullName="System.Console" LastSymbolSource="CoreLibBasics.vl">
-                      <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
-                      <Choice Kind="OperationCallFlag" Name="WriteLine" />
-                    </p:NodeReference>
-                    <Pin Id="IUPeZqqdadaL4reJ1ViRod" Name="Value" Kind="InputPin" />
-                    <Pin Id="RrYcmFb2goyMl5u7NgWmJx" Name="Apply" Kind="InputPin" DefaultValue="True">
-                      <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
-                        <Choice Kind="TypeFlag" Name="Boolean" />
-                      </p:TypeAnnotation>
-                    </Pin>
-                  </Node>
                 </Patch>
               </Node>
               <!--
@@ -1036,12 +1024,6 @@
                 <Pin Id="Sq2xgqPFnnsLuC0oqhFezb" Name="Output" Kind="StateOutputPin" />
               </Node>
               <ControlPoint Id="Iz65VdSNfYgOGdKVXim6Sf" Bounds="244,288" />
-              <Pad Id="K4iDHTbkLfoLCghemocxdx" SlotId="JEhm0gLdrYFLu95gabq8QU" Bounds="408,358" />
-              <Pad Id="SnhvXq5NiXMQGwHOTowY3o" SlotId="P0BEob0jIikNVRCKKMC9B3" Bounds="327,334" />
-              <Pad Id="NHIwmvYcVoBMPAN2n4F7QU" SlotId="JEhm0gLdrYFLu95gabq8QU" Bounds="400,647" />
-              <Pad Id="MyVGZVpvfhaQMip1ECZUub" SlotId="P0BEob0jIikNVRCKKMC9B3" Bounds="319,623" />
-              <ControlPoint Id="PpUMXGhWxM9NMTYZahCQRX" Bounds="319,707" />
-              <ControlPoint Id="TEw1awhsFGXP3WVw8zcJjr" Bounds="426,701" />
             </Canvas>
             <Patch Id="CIubtwG3ZjIOSQkQNl9VaO" Name="Create" ParticipatingElements="IQlE6G1WlN0MhoN6pGNa8h,L8R6c22GQOxQRw3S67o3z4">
               <Pin Id="Rc1xWJVK5a0MMqn2iRYdYm" Name="Remote Address" Kind="InputPin" Bounds="302,263" />
@@ -1054,7 +1036,6 @@
               <Fragment Id="SOzEveBx2o3QbBmkvzv9bB" Patch="CIubtwG3ZjIOSQkQNl9VaO" Enabled="true" />
               <Fragment Id="R2RvgOWvbuJPoTSiPdQbfd" Patch="VdzRbE56vIfMAqk1lQTq9G" />
               <Fragment Id="V6UAQdOgziDNZgbTjeKjGd" Patch="IBdlKc0rLXdOPIJ0JBncSo" />
-              <Fragment Id="SHinQ9ipn9rMRpHZNoGQ2r" Patch="HXyhkQzslOBNXlfVrxB85K" />
             </ProcessDefinition>
             <Link Id="IQlE6G1WlN0MhoN6pGNa8h" Ids="LhIW3dvM64bNvqGCoZUtag,QPKjWLW33EzPz6JGcdcnjW" />
             <Link Id="OiMuSOsLwqwMpD7OEjzNdR" Ids="TR7N0qkOrz5MO5aPCG0wah,DvXGHwSpxH9LFycYuGgdDd" />
@@ -1073,19 +1054,6 @@
             <Patch Id="IBdlKc0rLXdOPIJ0JBncSo" Name="PushLogMessage">
               <Pin Id="F1a51A9Hdi7OaN42VECWmU" Name="LogMessage" Kind="InputPin" />
             </Patch>
-            <Link Id="KZEbVCxUk45PTTwbALugqF" Ids="SJDsFE0rog9NWmkrNEi1SI,IUPeZqqdadaL4reJ1ViRod" />
-            <Slot Id="JEhm0gLdrYFLu95gabq8QU" Name="Remote Port" />
-            <Link Id="TS0nMeQlxtDMBIVBtIwjs7" Ids="Cr9yv0KIIzuNgCz8VJrEbx,K4iDHTbkLfoLCghemocxdx" />
-            <Slot Id="P0BEob0jIikNVRCKKMC9B3" Name="Remote Address" />
-            <Link Id="RtCCVTgbqfZLCWzDIosmCV" Ids="SJDsFE0rog9NWmkrNEi1SI,SnhvXq5NiXMQGwHOTowY3o" />
-            <Link Id="BrrVunEXUBTP8R5iEfaLCe" Ids="MyVGZVpvfhaQMip1ECZUub,PpUMXGhWxM9NMTYZahCQRX" />
-            <Link Id="FcMFIEHbUu9NeYECved6an" Ids="PpUMXGhWxM9NMTYZahCQRX,O52BEmJppv3Piqbw00Vdce" IsHidden="true" />
-            <Link Id="MSPxcdbk3c3MeDJTsM2CIE" Ids="NHIwmvYcVoBMPAN2n4F7QU,TEw1awhsFGXP3WVw8zcJjr" />
-            <Link Id="DpqddmBtgyCM1y2nyMyEXo" Ids="TEw1awhsFGXP3WVw8zcJjr,L26r65KXaARPVufuyl0qhC" IsHidden="true" />
-            <Patch Id="HXyhkQzslOBNXlfVrxB85K" Name="GetInfo">
-              <Pin Id="O52BEmJppv3Piqbw00Vdce" Name="Remote Address" Kind="OutputPin" />
-              <Pin Id="L26r65KXaARPVufuyl0qhC" Name="Remote Port" Kind="OutputPin" />
-            </Patch>
           </Patch>
         </Node>
         <!--
@@ -1093,7 +1061,7 @@
     ************************ Log (Many) ************************
 
 -->
-        <Node Name="Log (Many)" Bounds="527,588" Id="L21dfrBaFMtQYBUc2Zu5Yr" Summary="Basic stateful template with one in/out" Tags="vl">
+        <Node Name="Log (Many)" Bounds="527,588" Id="L21dfrBaFMtQYBUc2Zu5Yr" Summary="Send a sequence of logmessages to a syslog server" Remarks="by default sends to 127.0.0.1:514. If you want to have a different receiving server, place a UdpProvider Node in the patch as described in the helppatch" Tags="log,syslog,debug">
           <p:NodeReference>
             <Choice Kind="ClassDefinition" Name="Class" />
             <FullNameCategoryReference ID="Primitive" />
@@ -1199,20 +1167,20 @@
                 </p:ValueBoxSettings>
               </Pad>
             </Canvas>
-            <Patch Id="CyCOSkg6DxoQdhHsifk1so" Name="Create" />
-            <Patch Id="F64GNEpluBjPp1XzYtRHim" Name="SendMessage" ParticipatingElements="UQ7RciIQ4ZeL06Z8njpHYb" ManuallySortedPins="true">
+            <Patch Id="CyCOSkg6DxoQdhHsifk1so" Name="Create (Internal)" />
+            <Patch Id="F64GNEpluBjPp1XzYtRHim" Name="SendMessage (Internal)" ParticipatingElements="UQ7RciIQ4ZeL06Z8njpHYb" ManuallySortedPins="true">
               <Pin Id="ALQXP37OEbIPSx1X9lvuqW" Name="LogMessage" Kind="InputPin" Bounds="381,869" />
             </Patch>
             <Link Id="Tf7h66FnzK3L5wE2AAXJF4" Ids="QYCzFnnej7VOeKcTL8uott,Fvlxqya4wUIMeA1Uj4DJqR" />
             <Link Id="U8yFS9LxgJXNY8XJIxAtTJ" Ids="ESpMhRTVDXDPT3VomIhcSR,NLA3intcA2pMrqw40LLeeo" />
             <Link Id="S2NcWzVlsJjOGbuEIKL3GN" Ids="Qzzyt1J79MWMaBD9OwikUy,ESpMhRTVDXDPT3VomIhcSR" IsHidden="true" />
-            <Patch Id="NIcRq6FL8wHP2stbiSlrbK" Name="Update">
+            <Patch Id="NIcRq6FL8wHP2stbiSlrbK" Name="Update (Internal)">
               <Pin Id="Qzzyt1J79MWMaBD9OwikUy" Name="Send" Kind="InputPin" />
-              <Pin Id="DR8ztFEcdJtOqQ5KLTgwWs" Name="Host" Kind="InputPin" Bounds="1056,538" />
-              <Pin Id="OkROGqF7CKUNkfzHW9cSsm" Name="Facility" Kind="InputPin" Bounds="1083,560" Visibility="Optional" />
-              <Pin Id="VjzMTp1H9r2MGw8ZbnCS8S" Name="Severity" Kind="InputPin" Bounds="1162,554" />
-              <Pin Id="EvPwKXWaWHULyt72OqjMrD" Name="Tag" Kind="InputPin" Bounds="1232,549" />
-              <Pin Id="NuAp8PqP3TKP1aqqMUWSta" Name="Messages" Kind="InputPin" Bounds="1282,548" />
+              <Pin Id="DR8ztFEcdJtOqQ5KLTgwWs" Name="Host" Kind="InputPin" Bounds="1056,538" Summary="host field in the logmessage" />
+              <Pin Id="OkROGqF7CKUNkfzHW9cSsm" Name="Facility" Kind="InputPin" Bounds="1083,560" Visibility="Optional" Summary="facility field in the logmessage" />
+              <Pin Id="VjzMTp1H9r2MGw8ZbnCS8S" Name="Severity" Kind="InputPin" Bounds="1162,554" Summary="severity field in the logmessage" />
+              <Pin Id="EvPwKXWaWHULyt72OqjMrD" Name="Tag" Kind="InputPin" Bounds="1232,549" Summary="tag field in the logmessage" />
+              <Pin Id="NuAp8PqP3TKP1aqqMUWSta" Name="Messages" Kind="InputPin" Bounds="1282,548" Summary="the logmessages" />
             </Patch>
             <Link Id="PXKAX0fsPh2O9HnUc73zKx" Ids="DR8ztFEcdJtOqQ5KLTgwWs,DtU0PAglXBVPL82ZcOe8j3" IsHidden="true" />
             <Link Id="LAWTukFRWTSN9yLaHftp6v" Ids="OkROGqF7CKUNkfzHW9cSsm,Rn0BLJjOecuMfdz7jbO7Ae" IsHidden="true" />
@@ -1243,7 +1211,7 @@
     ************************ UdpProvider ************************
 
 -->
-        <Node Name="UdpProvider" Bounds="485,347" Id="VYRpvfOF4uxPiQoSyIoLlz">
+        <Node Name="UdpProvider" Bounds="485,347" Id="VYRpvfOF4uxPiQoSyIoLlz" Summary="Config for the Udp syslog server" Remarks="Use this node only, if you're sending to a different server than 127.0.0.1:514">
           <p:NodeReference>
             <Choice Kind="ClassDefinition" Name="Class" />
             <FullNameCategoryReference ID="Primitive" />
@@ -1288,7 +1256,7 @@
               </Node>
               <ControlPoint Id="P89KJ6wTVW8NMqbKlaeBI3" Bounds="419,334" />
             </Canvas>
-            <Patch Id="UmWDm2dZkvGQbda5Tym8RK" Name="Create" />
+            <Patch Id="UmWDm2dZkvGQbda5Tym8RK" Name="Create (Internal)" />
             <Link Id="UkZWyM95rv2MqRG3GWMLNU" Ids="VJvAbBJut9HLTvxQ7PUICG,G1SsMJsT07nLGH594nLHrN" IsHidden="true" />
             <Link Id="VdcrhiQzWlKPOqWmuh8XFO" Ids="LIxjG9ECIXGPkFHtszmo9f,RqY5ouLHVTlQXTcebMtLho" IsHidden="true" />
             <Link Id="OJ2My47JJFHL1Lm9y66QtH" Ids="G1SsMJsT07nLGH594nLHrN,FEyLUlWOEq5OzcW23zMdJa" />
@@ -1296,7 +1264,7 @@
             <Link Id="RSBR3oYL7cxLAWXXDEH4b9" Ids="TbL7Jpgj8T0M0PwlINWW0j,LN47n4UcoEMN6paR7uIzkk" IsHidden="true" />
             <Link Id="AoViyRA01PMNtAjxaFVSkP" Ids="GLHzBt4lKTKNsqprLhrx9Q,TbL7Jpgj8T0M0PwlINWW0j" />
             <Link Id="Fb1SjotfLSjP83c3AOKmGb" Ids="MC64R8otmklN7CHeCWe7YF,Cu7xQIn3G1gMSwT6UCRHZO" />
-            <Patch Id="KZz6Hn37rhpM9fcM9S2RQb" Name="SetEndPoint">
+            <Patch Id="KZz6Hn37rhpM9fcM9S2RQb" Name="SetEndPoint (Internal)">
               <Pin Id="VJvAbBJut9HLTvxQ7PUICG" Name="Server Address" Kind="InputPin" />
               <Pin Id="LIxjG9ECIXGPkFHtszmo9f" Name="Server Port" Kind="InputPin" />
               <Pin Id="F48rOB9xOURQXYHQqScwP1" Name="Set New Server" Kind="InputPin" Bounds="331,122" />
@@ -1310,7 +1278,7 @@
             <Link Id="KtRvFM64vBpQRcv80LqCQn" Ids="F48rOB9xOURQXYHQqScwP1,Vm8MHNN70mtPx5ssGyS14O" IsHidden="true" />
             <Link Id="Jjig3SNM5KIPFcnumlzRPD" Ids="P89KJ6wTVW8NMqbKlaeBI3,Oh2GfK9gJHeLUl98NRtOAk" />
             <Link Id="MrUEP40KEjNNbihlMac6M4" Ids="GpHCA369AvGNFsWELVf2Qq,P89KJ6wTVW8NMqbKlaeBI3" IsHidden="true" />
-            <Patch Id="MPDvYWUEvXhPPatFJ9nEwQ" Name="PushLogMessage">
+            <Patch Id="MPDvYWUEvXhPPatFJ9nEwQ" Name="PushLogMessage (Internal)">
               <Pin Id="GpHCA369AvGNFsWELVf2Qq" Name="LogMessage" Kind="InputPin" Visibility="Optional" />
             </Patch>
             <Link Id="Akeqy69UMK4Mzls1UE7GPr" Ids="Cu7xQIn3G1gMSwT6UCRHZO,NyRQwLBlNrbPMcBPmlTRPF" />
@@ -1332,7 +1300,7 @@
     ************************ LogMessage ************************
 
 -->
-      <Node Name="LogMessage" Bounds="388,241" Id="BMR3mK37avtNZb84F0RAcI">
+      <Node Name="LogMessage" Aspects="Internal" Bounds="388,241" Id="BMR3mK37avtNZb84F0RAcI">
         <p:NodeReference>
           <Choice Kind="RecordDefinition" Name="Record" />
           <FullNameCategoryReference ID="Primitive" />
@@ -1357,10 +1325,18 @@
           </Canvas>
           <Patch Id="KRPxm3SJ4SQP3jXghZWUoZ" Name="Create">
             <Pin Id="KztnqzOJQ9LOq9JaCJfYka" Name="Message" Kind="InputPin" />
-            <Pin Id="UnuFmZB4g8UN5U1FjEtsrX" Name="Severity" Kind="InputPin" />
+            <Pin Id="UnuFmZB4g8UN5U1FjEtsrX" Name="Severity" Kind="InputPin" DefaultValue="Unknown">
+              <p:TypeAnnotation LastCategoryFullName="VVVV.Nodes.Syslog" LastSymbolSource="VVVV.Nodes.Syslog.dll">
+                <Choice Kind="TypeFlag" Name="SyslogSeverity" />
+              </p:TypeAnnotation>
+            </Pin>
             <Pin Id="QBfNGtGFaiNNcJ9lvJmEMN" Name="Tag" Kind="InputPin" />
             <Pin Id="MNmFonvxZQAM6tUNzcxLyj" Name="Host" Kind="InputPin" />
-            <Pin Id="NyM2cGTHK9pOOsjQvJpte0" Name="Facility" Kind="InputPin" />
+            <Pin Id="NyM2cGTHK9pOOsjQvJpte0" Name="Facility" Kind="InputPin" DefaultValue="User">
+              <p:TypeAnnotation LastCategoryFullName="VVVV.Nodes.Syslog" LastSymbolSource="VVVV.Nodes.Syslog.dll">
+                <Choice Kind="TypeFlag" Name="SyslogFacility" />
+              </p:TypeAnnotation>
+            </Pin>
           </Patch>
           <ProcessDefinition Id="N44dcWaTvDFP8UbTwWiOhc" IsHidden="true">
             <Fragment Id="RYH2aXDWlfOMeOIlYa55Ek" Patch="KRPxm3SJ4SQP3jXghZWUoZ" Enabled="true" />
