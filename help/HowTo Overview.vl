@@ -16,11 +16,12 @@
       <Patch Id="QheYAS5ulssPw24QXkLUMu">
         <Canvas Id="Ru7ndvE2heXQGuoOaNNzYr" CanvasType="Group">
           <Node Bounds="126,866,464,19" Id="CHC0CDHWPI1OBM9nolXHvd">
-            <p:NodeReference LastCategoryFullName="Syslog.Udp" LastSymbolSource="Syslog.vl">
+            <p:NodeReference>
               <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
-              <Choice Kind="ProcessAppFlag" Name="Log (Async)" />
+              <Choice Kind="ProcessAppFlag" Name="Log" />
               <CategoryReference Kind="Category" Name="Udp" NeedsToBeDirectParent="true" />
             </p:NodeReference>
+            <p:HelpFocus p:Assembly="VL.Lang" p:Type="VL.Model.HelpPriority">High</p:HelpFocus>
             <Pin Id="M9Pm3xCg6K5QMeoWVS5IJ0" Name="Host" Kind="InputPin" DefaultValue="hostnames">
               <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
                 <Choice Kind="TypeFlag" Name="String" />
@@ -136,11 +137,12 @@
             </p:ValueBoxSettings>
           </Pad>
           <Node Bounds="700,870,518,19" Id="CLzync5T9AdNL0ldD57wC2">
-            <p:NodeReference LastCategoryFullName="Syslog.Udp" LastSymbolSource="Syslog.vl">
+            <p:NodeReference>
               <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
-              <Choice Kind="ProcessAppFlag" Name="Log (Async Many)" />
+              <Choice Kind="ProcessAppFlag" Name="Log (Many)" />
               <CategoryReference Kind="Category" Name="Udp" NeedsToBeDirectParent="true" />
             </p:NodeReference>
+            <p:HelpFocus p:Assembly="VL.Lang" p:Type="VL.Model.HelpPriority">High</p:HelpFocus>
             <Pin Id="Bt1DKiHRTu1OBTe6gRZc38" Name="Host" Kind="InputPin" />
             <Pin Id="L6V7dRa99ITOYrXMtLCAGP" Name="Severity" Kind="InputPin" />
             <Pin Id="GRKpbURqrx2NaoHxBd452a" Name="Tag" Kind="InputPin" DefaultValue="">
@@ -272,6 +274,7 @@
               <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
               <Choice Kind="ProcessAppFlag" Name="UdpProvider" />
             </p:NodeReference>
+            <p:HelpFocus p:Assembly="VL.Lang" p:Type="VL.Model.HelpPriority">High</p:HelpFocus>
             <Pin Id="DeK5ts0a8n6O9FndC5Vzja" Name="Set New Server" Kind="InputPin" />
             <Pin Id="H5AalrVhBlgOz04G1eyAW3" Name="Server Address" Kind="InputPin" />
             <Pin Id="CbhvK1YafXvNbx1PjYAPIt" Name="Server Port" Kind="InputPin" />

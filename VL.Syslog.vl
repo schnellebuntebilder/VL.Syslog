@@ -679,10 +679,10 @@
       <Canvas Id="PvYPS6JF124LavR0fslN10" Name="Udp" Position="719,378">
         <!--
 
-    ************************ Log (Async) ************************
+    ************************ Log ************************
 
 -->
-        <Node Name="Log (Async)" Bounds="522,530" Id="PjL5aQvlmkpNWNxQme9DnS" Summary="Basic stateful template with one in/out" Tags="vl">
+        <Node Name="Log" Bounds="522,530" Id="PjL5aQvlmkpNWNxQme9DnS" Summary="Basic stateful template with one in/out" Tags="vl">
           <p:NodeReference>
             <Choice Kind="ClassDefinition" Name="Class" />
             <FullNameCategoryReference ID="Primitive" />
@@ -700,13 +700,11 @@
                   <Patch Id="QG9DPJMOZBwNjSN8vn3gKx" Name="Create" ManuallySortedPins="true" />
                   <Patch Id="JVbqutSI94LQH6sEPp4uk8" Name="Then" ManuallySortedPins="true" />
                   <Node Bounds="587,757,-43,26" Id="IJjxwrx9uNpM9YrS89NiuP">
-                    <p:NodeReference LastCategoryFullName="Syslog.Udp.Log (Async)" LastSymbolSource="VL.Syslog.vl">
+                    <p:NodeReference>
                       <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
-                      <CategoryReference Kind="ClassType" Name="Log (Async)" NeedsToBeDirectParent="true" />
-                      <CategoryReference Kind="ClassType" Name="Log (Async)" NeedsToBeDirectParent="true" />
-                      <CategoryReference Kind="ClassType" Name="Log (Async)" NeedsToBeDirectParent="true">
-                        <p:OuterCategoryReference Kind="Category" Name="Udp" NeedsToBeDirectParent="true" />
-                      </CategoryReference>
+                      <CategoryReference Kind="ClassType" Name="Log" NeedsToBeDirectParent="true" />
+                      <CategoryReference Kind="ClassType" Name="Log" NeedsToBeDirectParent="true" />
+                      <CategoryReference Kind="ClassType" Name="Log" NeedsToBeDirectParent="true" />
                       <Choice Kind="OperationCallFlag" Name="SendMessage" />
                     </p:NodeReference>
                     <Pin Id="GBn0z30lGh2P8NO2ANtFem" Name="Input" Kind="StateInputPin" />
@@ -771,8 +769,16 @@
             <Link Id="GNqmYrFt7P4Pvu77dlCMv9" Ids="A3Busa2XYCGNdSufPr0EEi,Uix2ZlPQrnUOmaCWLHpxvX" IsHidden="true" />
             <Patch Id="MlrVemAI97HNKsrBHicr1x" Name="Update">
               <Pin Id="A3Busa2XYCGNdSufPr0EEi" Name="Host" Kind="InputPin" />
-              <Pin Id="VECv40tWzFhL6UcrImdYUt" Name="Facility" Kind="InputPin" Bounds="1109,532" Visibility="Optional" />
-              <Pin Id="LaBNBq1tGTsOUAFotsptcx" Name="Severity" Kind="InputPin" Bounds="1151,556" />
+              <Pin Id="VECv40tWzFhL6UcrImdYUt" Name="Facility" Kind="InputPin" Bounds="1109,532" DefaultValue="User" Visibility="Optional">
+                <p:TypeAnnotation LastCategoryFullName="VVVV.Nodes.Syslog" LastSymbolSource="VVVV.Nodes.Syslog.dll">
+                  <Choice Kind="TypeFlag" Name="SyslogFacility" />
+                </p:TypeAnnotation>
+              </Pin>
+              <Pin Id="LaBNBq1tGTsOUAFotsptcx" Name="Severity" Kind="InputPin" Bounds="1151,556" DefaultValue="Unknown">
+                <p:TypeAnnotation LastCategoryFullName="VVVV.Nodes.Syslog" LastSymbolSource="VVVV.Nodes.Syslog.dll">
+                  <Choice Kind="TypeFlag" Name="SyslogSeverity" />
+                </p:TypeAnnotation>
+              </Pin>
               <Pin Id="KnxNR99H9nqL9La3t0TrZe" Name="Tag" Kind="InputPin" Bounds="1190,573" />
               <Pin Id="EtTjYN0Z5EQPKoQhIgvaxd" Name="Message" Kind="InputPin" Bounds="1233,570" />
               <Pin Id="ELp9F4aa5orLCdfUQO4kJ5" Name="Send" Kind="InputPin" Bounds="1339,548" />
@@ -1084,10 +1090,10 @@
         </Node>
         <!--
 
-    ************************ Log (Async Many) ************************
+    ************************ Log (Many) ************************
 
 -->
-        <Node Name="Log (Async Many)" Bounds="527,588" Id="L21dfrBaFMtQYBUc2Zu5Yr" Summary="Basic stateful template with one in/out" Tags="vl">
+        <Node Name="Log (Many)" Bounds="527,588" Id="L21dfrBaFMtQYBUc2Zu5Yr" Summary="Basic stateful template with one in/out" Tags="vl">
           <p:NodeReference>
             <Choice Kind="ClassDefinition" Name="Class" />
             <FullNameCategoryReference ID="Primitive" />
@@ -1113,12 +1119,10 @@
                     <Pin Id="QYCzFnnej7VOeKcTL8uott" Name="Instance" Kind="OutputPin" />
                   </Node>
                   <Node Bounds="519,887,79,26" Id="UTd0eiXcYpsPgL67G2CuVe">
-                    <p:NodeReference LastCategoryFullName="Syslog.Udp.Log (Async Many)" LastSymbolSource="VL.Syslog.vl">
+                    <p:NodeReference>
                       <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                       <Choice Kind="OperationCallFlag" Name="SendMessage" />
-                      <CategoryReference Kind="ClassType" Name="Log (Async Many)" NeedsToBeDirectParent="true">
-                        <p:OuterCategoryReference Kind="Category" Name="Udp" NeedsToBeDirectParent="true" />
-                      </CategoryReference>
+                      <CategoryReference Kind="ClassType" Name="Log (Many)" NeedsToBeDirectParent="true" />
                     </p:NodeReference>
                     <Pin Id="Fvlxqya4wUIMeA1Uj4DJqR" Name="Input" Kind="StateInputPin" />
                     <Pin Id="BIDf5Lq4WblMcWvSGcBUWj" Name="LogMessage" Kind="InputPin" />
